@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import App from './App'
 
 const element = <h1>Hello React</h1>
 const myArray = ["apple", "orange", "pear"];
@@ -79,4 +79,4 @@ const myElement1 = (
 )
 
 
-ReactDOM.render(myElement1, document.getElementById('root'));
+ReactDOM.render(<React.StrictMode><App /></React.StrictMode>, document.getElementById('root'));
