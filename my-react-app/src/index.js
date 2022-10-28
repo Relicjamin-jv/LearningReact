@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App'
+import Test from './TestJSX'
 
 const element = <h1>Hello React</h1>
 const myArray = ["apple", "orange", "pear"];
@@ -79,4 +80,41 @@ const myElement1 = (
 )
 
 
-ReactDOM.render(<React.StrictMode><App /></React.StrictMode>, document.getElementById('root'));
+// class component
+// class Car extends React.Component {
+//   render(){
+//     return <h2>Hi, Im a Car</h2>
+//   }
+// }
+
+// function version of a class component
+// function Car(){
+//   return <h2>Hi, Im a Car</h2>
+// }
+
+// props
+function Car(props){
+  return( 
+    <div>
+      <h2>I am a {props.brand.brand} car!</h2>
+      <h3>I am {props.brand.color} car!</h3>
+    </div>
+  );
+}
+
+// component inside a component 
+function Garage(){
+  const carInfo = {brand: "Ford", color: "Red"}
+  return(
+    <div>
+      <h1>
+        Who lives in my Garage?
+      </h1>
+      <Car brand={carInfo}/>
+    </div>
+  );
+}
+
+const myCarElement = <Car brand="Ford"/>;
+
+ReactDOM.render(<React.StrictMode><Garage /></React.StrictMode>, document.getElementById('root'));
